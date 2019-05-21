@@ -22,7 +22,7 @@ The early Pacer was written in C and using the infamously complicated [libck](ht
 
 I have hardly seen a real excuse to use lock-free data structures, unless you are doing very low level [kernel](https://lwn.net/Articles/262464/) stuff, a concurrent renderer (Most of I have seen are overengineered and didn't really need it) or your own custom [VM](https://github.com/eloraiby/tcpm) infrastructure (Read that warning twice). Both Erlang & Go don't use them, and they are highly concurrent.
 
-Lock-free data structures and programs are tricky and very hard to debug. To get them right you often need formal proofs that they work or a ton of tests (If not, you are either very smart or very delusional - my bet is on the second). If not, brace yourself for bugs when you try to run your program on a non x64 architecture or change compiler versions (I always test on ARM - weaker memory model - and so should you).
+Lock-free data structures and programs are tricky and very hard to debug. To get them right you often need formal proofs that they work or a ton of tests on different CPU architectures. If not, brace yourself for bugs when you try to run your program on a non x64 architecture or change compiler versions (I always test on ARM for their weaker memory model - and so should you).
 
 Most of other problems (including rendering can be solved) with careful benchmark guided architectures.
 
